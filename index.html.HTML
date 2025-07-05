@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>FACULDADE DE TECNOLOGIA SSA</title>
+
+  <style>
+    body {
+      color: #ffffff;
+      font-size: 20px;
+      font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', 'Roboto Mono', 'Inconsolata', Consolas, monospace;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://img.goodfon.com/original/1920x1080/0/4d/lazer-luchi-figury.jpg');
+      height: 900px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .login-container {
+      background-color: rgba(14, 1, 1, 0.562);
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 50px rgba(177, 10, 10, 0.3);
+      margin-top: 50px;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: white;
+    }
+
+    .error {
+      color: whitesmoke;
+    }
+
+    button:hover {
+      background-color: #2a9c0d;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FACULDADE DE TECNOLOGIA SSA</h1>
+    
+  </header>
+
+  <div class="login-container">
+    <form id="loginForm" autocomplete="off">
+      <br>
+      <p><i> Seja bem vindo professor(a):</i></p>
+      <label for="username"><h3>USUÁRIO</h3></label>
+      <input type="text" name="username" placeholder="usuario" id="username" required><br><br>
+
+      <label for="password"><h3>SENHA</h3></label>
+      <input type="password" id="password" placeholder="senha" name="password" required><br><br>
+
+      <button type="submit">Entrar</button>
+
+      <div id="message" class="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = form.username.value.trim();
+      const password = form.password.value;
+
+      if (username === 'admin' && password === '123456') {
+        messageDiv.textContent = 'Login realizado com sucesso!';
+        messageDiv.className = 'message success';
+      } else {
+        messageDiv.textContent = 'Usuário ou senha inválidos!';
+        messageDiv.className = 'message error';
+      }
+
+      
+    });
+  </script>
+</body>
+</html>
